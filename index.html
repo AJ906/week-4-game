@@ -1,30 +1,76 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>simple crystal game</title>
-
-  <style type="text/css">
+  <!-- <title>simple crystal game</title> -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Crystals Collector</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+  integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+  crossorigin="anonymous">
+  <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
+  <script
+src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+  <!-- <style type="text/css">
 
     .crystal-image {
       width: 300px;
       height: 300px;
     }
-  </style>
+  </style> -->
 
 </head>
 <body>
+  <h1>Crystals Collector</h1>
+  <br>
+  <p>
+    You will be given a random number at the start of the game.
+    <br><br>
+    There are four crystals below. By clicking on a crystal you 
+    will add a specific amount of points to your total score.
+    <br><br>
+    You win the game by matching your total score to random 
+    number; you lose the game if your total score goes above 
+    the random number.
+    <br><br>
+    The value of each crystal is hidden from you until you 
+    click on it.
+    <br><br>
+    Each time when the game starts, the game will change the 
+    values of each crystal.
+</p>
+<br><br>
+  <h3>Target Number: <span id="number-to-guess"></span></h3>
 
-  <h1>Number to Guess: <span id="number-to-guess"></span></h1>
+  <div id="totalScore">
+    <h3>Your total score is: </h3>
+  </div>
 
   <!-- Note that this div is now empty. We will fill it dynamically -->
   <div id="crystals">
   </div>
+<br>
+  <div id="winLossTracker">
+    <p id="wins">Wins: </p>
+    <br>
+    <p id="losses">Losses: </p>
+</div>
+<br>
 
-  <!-- JAVASCRIPT  -->
+
+  <!-- JAVASCRIPT 
   <!-- ========================================= -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script type="text/javascript">
+  var wins = 0;
+  var losses = 0;
 
   // var targetNumber = 15;
   var targetNumber = [Math.floor(Math.random() * 102) + 19];
@@ -80,10 +126,13 @@
     //var newScore = counter += crystalValue;
 
     // All of the same game win-lose logic applies. So the rest remains unchanged.
-    alert("New score: " + counter);
+    // alert("New score: " + counter);
+    $("#totalScore").text("Your total score is: " + counter);
 
     if (counter === targetNumber) {
+      wins++;
       alert("You win!");
+      
 
       // targetNumber = 13;
       targetNumber = [Math.floor(Math.random() * 102) + 19];
@@ -94,14 +143,17 @@
     }
 
     else if (counter > targetNumber) {
+      losses++;
       alert("You lose!!");
+     
       // targetNumber = 10;
       targetNumber = [Math.floor(Math.random() * 102) + 19];
   $("#number-to-guess").text(targetNumber);
 
   counter = 0;
     }
-
+    $("#wins").text("Wins: " + wins);
+    $("#losses").text("Losses: " + losses);
   });
 
   </script>

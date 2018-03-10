@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Crystals Collector</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" 
+    crossorigin="anonymous">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico" />
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <h1>Crystals Collector</h1>
+    <br>
+
+    <div class="gameContainer">
+    <div id="gameInstr">
+
+    <p>
+        You will be given a random number at the start of the game.
+        <br><br>
+        There are four crystals below. By clicking on a crystal you 
+        will add a specific amount of points to your total score.
+        <br><br>
+        You win the game by matching your total score to random 
+        number; you lose the game if your total score goes above 
+        the random number.
+        <br><br>
+        The value of each crystal is hidden from you until you 
+        click on it.
+        <br><br>
+        Each time when the game starts, the dame will change the 
+        values of each crystal.
+    </p>
+    <br><br>
+    </div>
+
+    <div class="randNumWinLoss"></div>
+    <p>Your target number is: 
+        <span id="number-to-guess">0</span>
+    </p>
+    
+    <br>
+    
+    <div id="winLossTracker">
+        <p id="wins">Wins: </p>
+        <br>
+        <p id="losses">Losses: </p>
+    </div>
+</div>
+
+    <br>
+    <div id="crystals">
+        <!-- buttons go here -->
+    </div>
+    <br>
+    <div class="scoring">
+        <div section="totalScore">
+            <p>Your total score is:</p>
+        </div>
+        <br>
+        <div section="finalScore"></div>
+    
+    </div>
+</div>
+
+</body>
+</html>
